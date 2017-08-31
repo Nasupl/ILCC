@@ -87,9 +87,10 @@ def detect_img_corners():
         imagefilename = "img/" + str(i).zfill(4) + "." + params['image_format']
         corner_points = get_corner_coords(imagefilename)
 
-        # print corner_points
-        save_points_filename = "output/img_corners/" + str(i).zfill(4) + "_img_corners" + ".txt"
-        np.savetxt(save_points_filename, corner_points, delimiter=",")
+        if corner_points:
+            # print corner_points
+            save_points_filename = "output/img_corners/" + str(i).zfill(4) + "_img_corners" + ".txt"
+            np.savetxt(save_points_filename, corner_points, delimiter=",")
 
 
 if __name__ == '__main__':
